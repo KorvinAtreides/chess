@@ -1,0 +1,54 @@
+.registration--wrapper {
+  display: grid;
+  grid-template-columns: 35% 15% 35%;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1920px;
+  margin: 40px auto 0px;
+}
+.registration--player-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.registration--avatar-wrapper {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+.registration--avatar-input {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.registration--name-input {
+  max-width: 180px;
+  margin-top: 5px;
+  text-align: center;
+  border: 1px solid black;
+  cursor: pointer;
+}
+.registration--submenu-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.registration--submenu-button {
+  min-height: 40px;
+  min-width: 150px;
+  margin-top: 20px;
+}

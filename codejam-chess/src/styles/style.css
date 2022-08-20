@@ -1,0 +1,18 @@
+@import './pre-styles.css';
+@import './header.css';
+@import './main.css';
+@import './button.css';
+@import './signUp.css';
+@import './game.css';
+@import './field.css';
+@import './replay.css';
+
+html {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.content {
+  max-width: 1920px;
+}
