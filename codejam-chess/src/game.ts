@@ -151,7 +151,7 @@ export default class Game {
       setTimeout(() => {
         this.htmlField.renderFieldLabels(this.firstPlayer.chessmanColor === 'white');
         this.botTurn();
-      }, SHORT_DELAY+ONE_SECOND);
+      }, SHORT_DELAY + ONE_SECOND);
     }
     this.setTimer(this.timerCanvas);
   }
@@ -460,7 +460,7 @@ export default class Game {
       default:
         break;
     }
-    if(secondPlayerWrapper) registrationWrapper.append(secondPlayerWrapper);
+    if (secondPlayerWrapper) registrationWrapper.append(secondPlayerWrapper);
     const submenuWrapper = ElementCreator.createElement('div', ['registration--submenu-wrapper']);
     this.startGameButton = ElementCreator.createElement(
       'button',

@@ -158,15 +158,15 @@ export default class LogicField {
   }
 
   getSelectedFigures(color: PlayerColor) {
-    const figures: Array<Figure> = [];
+    const figuresArr: Array<Figure> = [];
     this.field.forEach((row) => {
       const copyRow = row.filter((figure) => {
         if (!figure) return false;
         return figure.color === color;
       });
-      figures.push(...copyRow);
+      figuresArr.push(...copyRow);
     });
-    return figures;
+    return figuresArr;
   }
 
   moveFigureInField(figure: Figure, endPosition: string) {

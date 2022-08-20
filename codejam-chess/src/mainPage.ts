@@ -169,18 +169,18 @@ export default class MainPage {
   }
 
   startGameScript() {
-    if (this.game.mod !== GAME_MOD.online){
+    if (this.game.mod !== GAME_MOD.online) {
       this.game.startGameButton.onclick = () => {
         this.registrationWrapper.remove();
         this.htmlMainPage.append(this.createSignBoard());
         this.game.startGame(this.timerCanvas, this.gameTitle);
         this.htmlMainPage.append(this.game.mainWrapper);
         this.createEndGameButtons();
-      }
+      };
     } else {
       this.game.startGameButton.onclick = () => {
         // get request
-      }
+      };
     }
   }
 }
