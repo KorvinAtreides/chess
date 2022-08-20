@@ -1,7 +1,7 @@
 import { PlayerColor, URLS } from '../constants';
 import ElementCreator from '../elementCreator';
 
-const STANDART_PLAYER_AVATAR = 'standart-avatar.png';
+const STANDARD_PLAYER_AVATAR = 'standard-avatar.png';
 
 export default class Player {
   avatarUrl: string;
@@ -23,7 +23,7 @@ export default class Player {
   surrenderButton: HTMLElement;
 
   constructor(name: string) {
-    this.avatarUrl = `${URLS.iconsPath}/${STANDART_PLAYER_AVATAR}`;
+    this.avatarUrl = `${URLS.iconsPath}/${STANDARD_PLAYER_AVATAR}`;
     this.name = name;
   }
 

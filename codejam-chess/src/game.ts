@@ -8,7 +8,7 @@ import {
   ROW_LABEL_ARRAY,
   SelectOption,
   SHORT_DELAY,
-  STANDART_NAME,
+  STANDARD_NAME,
   URLS,
   BOT_DIFFICULTY,
   BOT_DIFFICULTY_DEPTH,
@@ -28,12 +28,12 @@ import IndexedDB from './replays/indexedDb';
 
 const WHITE_COLOR = '#ffffff';
 const SCALE = {
-  standartSize: '1',
+  standardSize: '1',
   smallSize: '0.3',
 };
 const CANVAS_POSITION_X_TO_DRAW_TIMER = 25;
 const CANVAS_POSITION_Y_TO_DRAW_TIMER = 90;
-const STANDART_GAME_TITLE_MESSAGE = 'Important event:';
+const STANDARD_GAME_TITLE_MESSAGE = 'Important event:';
 
 const difficultyOptions: Array<SelectOption> = [
   {
@@ -214,7 +214,7 @@ export default class Game {
     this.currentPlayer.playerLogWrapper.classList.add('active');
     this.currentPlayer.drawButton.removeAttribute('disabled');
     this.currentPlayer.surrenderButton.removeAttribute('disabled');
-    if (this.mod === GAME_MOD.ofline) {
+    if (this.mod === GAME_MOD.offline) {
       this.htmlField.revertFieldImage();
       setTimeout(() => {
         this.htmlField.renderFieldLabels(this.currentPlayer.chessmanColor === 'white');
@@ -247,7 +247,7 @@ export default class Game {
       this.currentFigure.position = nextPosition;
       if (this.currentFigure instanceof Pawn && this.currentFigure.isLastRow()) {
         this.pawnPromotion(square, mateImage);
-        this.gameTitle.textContent = `${STANDART_GAME_TITLE_MESSAGE} Promotion!`;
+        this.gameTitle.textContent = `${STANDARD_GAME_TITLE_MESSAGE} Promotion!`;
         this.writeLog(this.currentFigure.position, nextPosition, this.currentFigure);
         const promotionMove = this.log.pop();
         this.log[this.log.length - 1] += `+${promotionMove}`;
@@ -257,7 +257,7 @@ export default class Game {
       }
       if (this.currentFigure instanceof King && square.classList.contains('castling')) {
         this.castling(prevPosition);
-        this.gameTitle.textContent = `${STANDART_GAME_TITLE_MESSAGE} Castling!`;
+        this.gameTitle.textContent = `${STANDARD_GAME_TITLE_MESSAGE} Castling!`;
         const castlingMove = this.log.pop();
         this.log[this.log.length - 1] += `+${castlingMove}`;
       }
@@ -271,7 +271,7 @@ export default class Game {
       this.check = !!getKing.length;
       if (getKing.length) {
         this.htmlField.displayCheckPositions(getKing);
-        this.gameTitle.textContent = `${STANDART_GAME_TITLE_MESSAGE} Check!`;
+        this.gameTitle.textContent = `${STANDARD_GAME_TITLE_MESSAGE} Check!`;
       }
       this.endTurn();
       return true;
@@ -320,7 +320,7 @@ export default class Game {
         player.updateStatusTitle();
         const anotherPlayer = player === this.firstPlayer ? this.secondPlayer : this.firstPlayer;
         if (player.status === 'Draw' && anotherPlayer.status === 'Draw') {
-          this.gameTitle.textContent = `${STANDART_GAME_TITLE_MESSAGE} Draw by agreement`;
+          this.gameTitle.textContent = `${STANDARD_GAME_TITLE_MESSAGE} Draw by agreement`;
           this.endGame();
         }
       });
@@ -368,7 +368,7 @@ export default class Game {
         this.currentPlayer.playerLogWrapper.classList.add('winner');
         this.htmlField.displayCheckmatePositions();
         this.gameTitle.textContent = `
-          ${STANDART_GAME_TITLE_MESSAGE} CheckMate! ${this.currentPlayer.name} wins the game
+          ${STANDARD_GAME_TITLE_MESSAGE} CheckMate! ${this.currentPlayer.name} wins the game
           in ${this.timer.getCurrentTime()}!
           `;
         this.currentPlayer.status = 'Win';
@@ -376,7 +376,7 @@ export default class Game {
       } else {
         if (this.mod !== GAME_MOD.bot) this.changePlayer();
         this.gameTitle.textContent = `
-          ${STANDART_GAME_TITLE_MESSAGE} Draw! ${this.currentPlayer.name} can not move!
+          ${STANDARD_GAME_TITLE_MESSAGE} Draw! ${this.currentPlayer.name} can not move!
           `;
         [this.firstPlayer, this.secondPlayer].forEach((player) => {
           const copyPlayer = player;
@@ -435,14 +435,14 @@ export default class Game {
     this.settingsWrapper.classList.remove('invisible');
     document.body.classList.add('notScrollable');
     setTimeout(() => {
-      this.settingsFront.style.transform = `scale(${SCALE.standartSize})`;
+      this.settingsFront.style.transform = `scale(${SCALE.standardSize})`;
     }, INSTANT_DELAY);
   }
 
   signUp(mod: string) {
     this.mod = mod;
     const registrationWrapper = ElementCreator.createElement('div', ['registration--wrapper']);
-    this.firstPlayer = new Player(STANDART_NAME.firstPlayer);
+    this.firstPlayer = new Player(STANDARD_NAME.firstPlayer);
     const firstPlayerWrapper = SignUp.playerVisualization(this.firstPlayer);
     registrationWrapper.append(firstPlayerWrapper);
     let secondPlayerWrapper: HTMLElement;
@@ -451,8 +451,8 @@ export default class Game {
         this.secondPlayer = new Bot();
         secondPlayerWrapper = SignUp.playerVisualization(this.secondPlayer, false);
         break;
-      case GAME_MOD.ofline:
-        this.secondPlayer = new Player(STANDART_NAME.secondPlayer);
+      case GAME_MOD.offline:
+        this.secondPlayer = new Player(STANDARD_NAME.secondPlayer);
         secondPlayerWrapper = SignUp.playerVisualization(this.secondPlayer, true);
         break;
       case GAME_MOD.online:

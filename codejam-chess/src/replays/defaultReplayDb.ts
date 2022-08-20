@@ -1,6 +1,6 @@
 import { ReplayRecord, URLS } from '../constants';
 
-const STANDART_PLAYER_AVATAR = 'standart-avatar.png';
+const STANDARD_PLAYER_AVATAR = 'standard-avatar.png';
 
 const defaultReplaysDB: Array<ReplayRecord> = [
   {
@@ -8,13 +8,13 @@ const defaultReplaysDB: Array<ReplayRecord> = [
       name: 'Anatoly Karpov',
       chessmanColor: 'white',
       status: 'Surrender',
-      avatarUrl: `${URLS.iconsPath}/${STANDART_PLAYER_AVATAR}`,
+      avatarUrl: `${URLS.iconsPath}/${STANDARD_PLAYER_AVATAR}`,
     },
     secondPlayer: {
       name: 'Garry Kasparov',
       chessmanColor: 'black',
       status: 'Win',
-      avatarUrl: `${URLS.iconsPath}/${STANDART_PLAYER_AVATAR}`,
+      avatarUrl: `${URLS.iconsPath}/${STANDARD_PLAYER_AVATAR}`,
     },
     totalTime: 'unknown',
     log: [

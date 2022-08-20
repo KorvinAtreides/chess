@@ -1,9 +1,9 @@
-import { STANDART_NAME, URLS } from '../constants';
+import { STANDARD_NAME, URLS } from '../constants';
 import LogicField from '../field/logicField';
 import Figure from '../figures/figure';
 import Player from './player';
 
-const STANDART_BOT_AVATAR = 'bot-avatar.png';
+const STANDARD_BOT_AVATAR = 'bot-avatar.png';
 
 interface AvailablePositions {
   start: string;
@@ -22,8 +22,8 @@ export default class Bot extends Player {
   maxDepth: number;
 
   constructor() {
-    super(STANDART_NAME.bot);
-    this.avatarUrl = `${URLS.iconsPath}/${STANDART_BOT_AVATAR}`;
+    super(STANDARD_NAME.bot);
+    this.avatarUrl = `${URLS.iconsPath}/${STANDARD_BOT_AVATAR}`;
   }
 
   async getBestMove(field: Array<Array<Figure>>, currentDepth: number, reverse: boolean) {

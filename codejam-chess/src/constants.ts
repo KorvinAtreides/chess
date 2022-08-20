@@ -8,11 +8,11 @@ const URLS = {
 
 const GAME_MOD = {
   online: 'PvPOnline',
-  ofline: 'PvPOfline',
+  offline: 'PvPOffline',
   bot: 'PvE',
 };
 
-const STANDART_NAME = {
+const STANDARD_NAME = {
   firstPlayer: 'Player 1',
   secondPlayer: 'Player 2',
   bot: 'Chess AI',
@@ -84,7 +84,7 @@ export {
   SelectOption,
   INSTANT_DELAY,
   SHORT_DELAY,
-  STANDART_NAME,
+  STANDARD_NAME,
   CURSOR_VALUE,
   ReplayRecord,
   ReplayPlayer,

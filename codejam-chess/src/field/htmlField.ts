@@ -2,10 +2,10 @@ import { CURSOR_VALUE, ROW_LABEL_ARRAY } from '../constants';
 import ElementCreator from '../elementCreator';
 import Figure from '../figures/figure';
 
-const COLUMN_LABEL_WIDTH_COEF = 0.25;
+const COLUMN_LABEL_WIDTH_COEFFICIENT = 0.25;
 const LABEL_FONT_SIZE_PX = 20;
 const FIELD_SQUARE_LENGTH_PX = 50;
-const Z_INDEX_STANDART = '1';
+const Z_INDEX_STANDARD = '1';
 const Z_INDEX_UP = '100';
 const LIGHT_BROWN_COLOR = '#f0b9d2';
 const DARK_BROWN_COLOR = '#b58860';
@@ -83,7 +83,7 @@ export default class HTMLField {
         ['game--label'],
         `${ROW_LABEL_ARRAY.length - i}`,
       );
-      label.style.setProperty('left', `${LABEL_FONT_SIZE_PX * COLUMN_LABEL_WIDTH_COEF}px`);
+      label.style.setProperty('left', `${LABEL_FONT_SIZE_PX * COLUMN_LABEL_WIDTH_COEFFICIENT}px`);
       this.labelNumbers.push(label);
     }
     this.labelLetters = [];
@@ -133,7 +133,7 @@ export default class HTMLField {
         goalSquare.click();
       }
       image.style.cursor = CURSOR_VALUE.move;
-      image.style.zIndex = Z_INDEX_STANDART;
+      image.style.zIndex = Z_INDEX_STANDARD;
       document.onmousemove = () => {};
       return true;
     };

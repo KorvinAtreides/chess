@@ -181,7 +181,7 @@ export default class Replay {
   }
 
   createFieldWrapper() {
-    const playerwrapper = ElementCreator.createElement('div', ['replay--player-field-wrapper']);
+    const playerWrapper = ElementCreator.createElement('div', ['replay--player-field-wrapper']);
     const blackPlayerWrapper = ElementCreator.createElement('div', ['replay--player-wrapper']);
     const isFirstPlayerBlack = this.replayRecord.firstPlayer.chessmanColor === 'black';
     const blackPlayer = isFirstPlayerBlack
@@ -191,10 +191,10 @@ export default class Replay {
     avatarWrapper.style.setProperty('background-image', `url(${blackPlayer.avatarUrl})`);
     const playerName = ElementCreator.createElement('p', ['main--replay-name'], blackPlayer.name);
     blackPlayerWrapper.append(avatarWrapper, playerName);
-    playerwrapper.append(blackPlayerWrapper);
+    playerWrapper.append(blackPlayerWrapper);
     this.htmlField = new HTMLField();
     this.fieldInitialPosition();
-    playerwrapper.append(this.htmlField.wrapper);
+    playerWrapper.append(this.htmlField.wrapper);
     const whitePlayerWrapper = ElementCreator.createElement('div', ['replay--player-wrapper']);
     const whitePlayer = isFirstPlayerBlack
       ? this.replayRecord.secondPlayer
@@ -203,12 +203,12 @@ export default class Replay {
     avatarWrapper2.style.setProperty('background-image', `url(${whitePlayer.avatarUrl})`);
     const playerName2 = ElementCreator.createElement('p', ['main--replay-name'], whitePlayer.name);
     whitePlayerWrapper.append(avatarWrapper2, playerName2);
-    playerwrapper.append(whitePlayerWrapper);
+    playerWrapper.append(whitePlayerWrapper);
     const isWhitePlayerWin = whitePlayer.status === 'Win';
     const isBlackPlayerWin = blackPlayer.status === 'Win';
     if (isWhitePlayerWin) this.winnerWrapper = whitePlayerWrapper;
     if (isBlackPlayerWin) this.winnerWrapper = blackPlayerWrapper;
-    return playerwrapper;
+    return playerWrapper;
   }
 
   createLogWrapper() {

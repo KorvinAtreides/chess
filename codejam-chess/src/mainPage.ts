@@ -150,7 +150,7 @@ export default class MainPage {
       this.startSignUp(GAME_MOD.online);
     };
     this.buttonPvPOffline.onclick = () => {
-      this.startSignUp(GAME_MOD.ofline);
+      this.startSignUp(GAME_MOD.offline);
     };
     this.buttonReplay.onclick = async () => {
       const indexedDB = new IndexedDB();
