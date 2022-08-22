@@ -6,6 +6,7 @@ const ESLintPlugin = require("eslint-webpack-plugin");
 module.exports = {
   entry: {
     main: path.resolve(__dirname, "./src/index.js"),
+    worker: path.resolve(__dirname, "./src/api/worker.js"),
   },
   module: {
     rules: [
@@ -27,7 +28,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, "bundle"),
-    filename: "bundle.js",
+    filename: "[name].js",
   },
   devServer: {
     historyApiFallback: true,

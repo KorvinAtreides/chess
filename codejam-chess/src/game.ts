@@ -76,6 +76,8 @@ export default class Game {
 
   check: boolean;
 
+  chessWorker: Worker;
+
   currentPlayer: Player;
 
   currentFigure: Figure | null;
@@ -113,6 +115,7 @@ export default class Game {
   acceptSettings(difficultySelect: HTMLSelectElement, sideSelect: HTMLSelectElement) {
     if (this.secondPlayer instanceof Bot) {
       this.secondPlayer.difficulty = difficultySelect.value;
+      this.chessWorker = new Worker("./worker.js");
       switch (this.secondPlayer.difficulty) {
         case BOT_DIFFICULTY.easy:
           this.secondPlayer.maxDepth = BOT_DIFFICULTY_DEPTH.easy;
@@ -163,6 +166,10 @@ export default class Game {
     this.htmlField.shield.hidden = false;
     setTimeout(async () => {
       if (this.currentPlayer instanceof Bot) {
+        this.chessWorker.postMessage([1, 3]);
+        this.chessWorker.onmessage = function(e) {
+          console.log(e.data);
+        }
         const [startPosition, endPosition] = await this.currentPlayer.getBestMove(
           this.logicField.field,
           0,
@@ -333,6 +340,7 @@ export default class Game {
     this.mainWrapper.before(this.endGameButtons);
     this.currentPlayer.drawButton.setAttribute('disabled', 'disabled');
     this.currentPlayer.surrenderButton.setAttribute('disabled', 'disabled');
+    this.chessWorker.terminate();
     const firstPlayerInfo: ReplayPlayer = {
       name: this.firstPlayer.name,
       chessmanColor: this.firstPlayer.chessmanColor,
