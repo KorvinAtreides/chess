@@ -1,4 +1,11 @@
+const EMPTY_MESSAGE_ERROR_TEXT = 'is not iterable (cannot read property Symbol(Symbol.iterator))';
+
 onmessage = function workerListener(e) {
-  const workerResult = `Result: ${e.data[0] * e.data[1]}`;
-  postMessage([workerResult]);
+  let workerResult;
+  try {
+    [workerResult] = e.data;
+  } catch (error) {
+    if (!error.message.includes(EMPTY_MESSAGE_ERROR_TEXT)) console.log(error);
+  }
+  postMessage(workerResult);
 };
