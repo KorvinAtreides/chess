@@ -1,0 +1,76 @@
+.main {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+
+.main--menu-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main--button {
+  min-height: 50px;
+  min-width: 250px;
+  margin-top: 30px;
+}
+
+.main--sign-wrapper {
+  width: 100%;
+}
+.main--sign-timer {
+  display: block;
+  width: 200px;
+  height: 100px;
+  margin: 0px auto;
+}
+
+.main--sign-title {
+  height: 30px;
+  margin: 0px auto;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.main--replay-button {
+  position: absolute;
+  top: 0;
+  right: 50px;
+  min-height: 40px;
+  min-width: 100px;
+}
+.main--replay-info-wrapper {
+  position: relative;
+  display: grid;
+  grid-template-columns: 25% max-content 25%;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 800px;
+  height: 200px;
+  margin: 20px auto 0px;
+  background-color: #9e988d;
+}
+.main--button-wrapper {
+  position: relative;
+  text-align: center;
+}
+.main--replay-name {
+  margin-top: 10px;
+}
+.main--replay-title {
+  margin-top: 15px;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+}
+.main--info-button {
+  position: inherit;
+  top: 0;
+  right: 0;
+  margin-top: 15px;
+}
