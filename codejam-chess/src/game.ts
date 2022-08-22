@@ -166,15 +166,14 @@ export default class Game {
     this.htmlField.shield.hidden = false;
     setTimeout(async () => {
       if (this.currentPlayer instanceof Bot) {
-        this.chessWorker.postMessage([1, 3]);
-        this.chessWorker.onmessage = function(e) {
-          console.log(e.data);
-        }
-        const [startPosition, endPosition] = await this.currentPlayer.getBestMove(
-          this.logicField.field,
-          0,
-          false,
-        );
+        const copyBot = JSON.parse(JSON.stringify(this.currentPlayer));
+        this.chessWorker.postMessage([this.logicField.field, copyBot]);
+        const workerPromise: Promise<Array<string | number>> = new Promise (res => {
+          this.chessWorker.onmessage = function(e: MessageEvent) {
+            res(e.data);
+          }
+        });
+        const [startPosition, endPosition] = await workerPromise;
         const startSquare: HTMLElement = this.htmlField.field.querySelector(
           `[data-position=${startPosition}]`,
         );
